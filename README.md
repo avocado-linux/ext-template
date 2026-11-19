@@ -32,10 +32,11 @@ Release: tag the commit with the exact `avocado.yaml` version, e.g. `git tag 0.1
   channel selects the *package feed*.
 - **CI comes from `avocado-linux/actions@v1`**, pinned. The matrix lives in the caller so
   each repo owns its own target/feed combinations.
-- **The workflows here use the `2024`/`next` feed.** `avocado-linux/actions@v1` *defaults*
-  to `2026`/`edge`, but the workflows pass `2024`/`next` explicitly. Add or move a row to
-  `2026` once the packages your extension depends on are published there. Check
-  `https://repo.avocadolinux.org/2026/next/target/<target>/repodata/repomd.xml`.
+- **CI covers both releases on the `next` channel.** Test and Release each run one leg
+  on `2024`/`next` and one on `2026`/`next` (`avocado-linux/actions@v1` would otherwise
+  default to `2026`/`edge`). Drop a leg only if your target or the packages your
+  extension depends on are not published on that release. Check
+  `https://repo.avocadolinux.org/<release>/next/target/<target>/repodata/repomd.xml`.
 
 ## Using this extension
 

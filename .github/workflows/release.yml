@@ -17,8 +17,7 @@ jobs:
       matrix:
         include:
           - { target: qemux86-64, distro-release: "2024", distro-channel: next }
-          # Add once your target is published in the 2026 feed:
-          # - { target: qemux86-64, distro-release: "2026", distro-channel: next }
+          - { target: qemux86-64, distro-release: "2026", distro-channel: next }
     uses: avocado-linux/actions/.github/workflows/extension-release.yml@v1
     with:
       target:         ${{ matrix.target }}

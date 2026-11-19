@@ -3,10 +3,9 @@ name: Test
 # "Does it build" check on PRs. The matrix lives here (the caller owns it); each leg
 # calls the single-combo reusable helper. Add rows for more targets/feeds as needed.
 #
-# Feed is 2024/next. Some targets are published in the 2026 feed too: flip a leg to
-# { distro-release: "2026", distro-channel: next } once the packages your extension
-# depends on exist there (check
-# https://repo.avocadolinux.org/2026/next/target/<target>/repodata/repomd.xml).
+# One leg per release the extension ships on: 2024/next and 2026/next. Drop a leg only
+# if your target or the packages your extension depends on are not published there
+# (check https://repo.avocadolinux.org/<release>/next/target/<target>/repodata/repomd.xml).
 # Note this only picks the feed + SDK image tag — the sdk.image string in
 # avocado.yaml stays release-scoped either way.
 on:
@@ -20,6 +19,7 @@ jobs:
       matrix:
         include:
           - { target: qemux86-64, distro-release: "2024", distro-channel: next }
+          - { target: qemux86-64, distro-release: "2026", distro-channel: next }
     uses: avocado-linux/actions/.github/workflows/extension-test.yml@v1
     with:
       target:         ${{ matrix.target }}

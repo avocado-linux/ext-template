@@ -26,8 +26,10 @@ Release: tag the commit with the exact `avocado.yaml` version, e.g. `git tag 0.1
 - **SDK image is release-scoped, not channel-scoped.**
   `docker.io/avocadolinux/sdk:{{ env.AVOCADO_DISTRO_RELEASE }}` → `avocadolinux/sdk:2026`
   on a 2026 CI leg, `avocadolinux/sdk:2024` on a 2024 one. Do not append
-  `-{{ env.AVOCADO_DISTRO_CHANNEL }}` — there is no such tag on any release. The channel
-  selects the *package feed*; the image tag is per-release only.
+  `-{{ env.AVOCADO_DISTRO_CHANNEL }}`. Channel-suffixed tags exist for some channels
+  only (`2024-edge` and `2026-edge` are published, `-next` is not), and `next` is the
+  channel the workflows here use. The release-only tag resolves on every channel. The
+  channel selects the *package feed*.
 - **CI comes from `avocado-linux/actions@v1`**, pinned. The matrix lives in the caller so
   each repo owns its own target/feed combinations.
 - **Feed today is `2024`/`edge-next`.** `avocado-linux/actions@v1` *defaults* to

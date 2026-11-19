@@ -30,9 +30,10 @@ Release: tag the commit with the exact `avocado.yaml` version, e.g. `git tag 0.1
   selects the *package feed*; the image tag is per-release only.
 - **CI comes from `avocado-linux/actions@v1`**, pinned. The matrix lives in the caller so
   each repo owns its own target/feed combinations.
-- **Feed today is `2024`/`edge-next`.** `avocado-linux/actions@v1` *defaults* to
-  `2026`/`edge`, but the 2026 feed currently publishes only `jetson-agx-thor`, so the
-  workflows here pass 2024 explicitly. Move a target to 2026 as it lands there.
+- **The workflows here use the `2024`/`next` feed.** `avocado-linux/actions@v1` *defaults*
+  to `2026`/`edge`, but the workflows pass `2024`/`next` explicitly. Add or move a row to
+  `2026` once the packages your extension depends on are published there. Check
+  `https://repo.avocadolinux.org/2026/next/target/<target>/repodata/repomd.xml`.
 
 ## Using this extension
 

@@ -3,9 +3,11 @@ name: Test
 # "Does it build" check on PRs. The matrix lives here (the caller owns it); each leg
 # calls the single-combo reusable helper. Add rows for more targets/feeds as needed.
 #
-# Feed is 2024/next because that is where the targets are published today. Flip a leg to
-# { distro-release: "2026", distro-channel: next } once your target exists in the 2026
-# feed. Note this only picks the feed + SDK image tag — the sdk.image string in
+# Feed is 2024/next. Some targets are published in the 2026 feed too: flip a leg to
+# { distro-release: "2026", distro-channel: next } once the packages your extension
+# depends on exist there (check
+# https://repo.avocadolinux.org/2026/next/target/<target>/repodata/repomd.xml).
+# Note this only picks the feed + SDK image tag — the sdk.image string in
 # avocado.yaml stays release-scoped either way.
 on:
   pull_request:

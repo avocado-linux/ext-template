@@ -29,7 +29,8 @@ extensions:
     #     nativesdk-foo: '*'
 
 # Release-scoped, not channel-scoped: this resolves to avocadolinux/sdk:2026.
-# The SDK image is per-release only — appending the channel points at a tag
-# that does not exist.
+# Do not append the channel: tags such as -edge exist for some channels only,
+# and there is no -next tag, the channel the workflows here use. The
+# release-only tag resolves on every channel.
 sdk:
   image: docker.io/avocadolinux/sdk:{{ env.AVOCADO_DISTRO_RELEASE }}

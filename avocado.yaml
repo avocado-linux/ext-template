@@ -10,7 +10,8 @@ extensions:
     summary: One-line summary
     description: One-line description
     license: Apache-2.0
-    url: https://github.com/avocadolinux/avocado-os
+    # Set this to your repository's URL.
+    url: https://github.com/avocado-linux/ext-template
     vendor: Avocado Linux <info@avocadolinux.org>
 
     # Runtime packages pulled from the target feed.
